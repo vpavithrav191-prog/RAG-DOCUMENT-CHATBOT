@@ -639,9 +639,9 @@ def main():
         st.header("⚙️ Settings")
 
         try:
-        api_key = st.secrets["OPENROUTER_API_KEY"]
+         api_key = st.secrets["OPENROUTER_API_KEY"]
         except Exception:
-        api_key = os.getenv("OPENROUTER_API_KEY", "")
+          api_key = os.getenv("OPENROUTER_API_KEY", "")
 
         chat_model = st.selectbox(
             "Chat Model",
