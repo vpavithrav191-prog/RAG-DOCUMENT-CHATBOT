@@ -638,11 +638,10 @@ def main():
 
         st.header("⚙️ Settings")
 
-        api_key = st.text_input(
-            "OpenRouter API Key",
-            value=os.getenv("OPENROUTER_API_KEY", ""),
-            type="password"
-        )
+        try:
+    api_key = st.secrets["OPENROUTER_API_KEY"]
+except (KeyError, FileNotFoundError):
+    api_key = os.getenv("OPENROUTER_API_KEY", "")
 
         chat_model = st.selectbox(
             "Chat Model",
